@@ -9,7 +9,11 @@
 \usepackage{float}
 \usepackage[normalem]{ulem}
 \geometry{left=2cm, right=2cm, top=2cm, bottom=2cm}
-\newtheorem{theorem}{Theorem}
+\newtheorem{manualtheoreminner}{Theorem}
+\newenvironment{theorem}[1]{%
+  \renewcommand\themanualtheoreminner{#1}%
+  \manualtheoreminner
+}{\endmanualtheoreminner}
 \newtheorem*{corollary}{Corollary}
 \newtheorem*{lemma}{Lemma}
 \newtheorem{example}{Example}
@@ -111,7 +115,7 @@ Let $G$ be a plane graph. The sets $F_{1}, \dots F_{l}$ described above are call
 \end{usecounterof}
 
 
-\begin{theorem}
+\begin{theorem}{1}
   \textit{(Euler's Formula, 1780)} Let $G$ be a connected plane graph. If $G$ has $n$ nodes and $f$ faces then
 
   \[n - m + f = 2\]
@@ -237,7 +241,7 @@ Let $G$ be a graph, If $G$ contains a cycle then the \textbf{girth} $gr(G)$ is d
 \end{remark}
 
 
-\begin{theorem}
+\begin{theorem}{4}
   Let $G$ be a connected simple planar graph. If $G$ has order $n$ and size $m$ then
 
     \begin{align} m \le \begin{cases} n-1 & \text{if } gr(G) = \infty \\
@@ -280,7 +284,7 @@ This contradicts that $gr(G) \ge 3$ No such $G$ exists.
 
 \begin{solution}
   From \textbf{Theorem 2}
-  \[14 \le \frac{S}{S-2} (n-2)\]
+  \[14 \le \frac{5}{5-2} (n-2)\]
 solving $f$ n yields $n\ge 52/5$ some $n$ is an integer $n\ge 11$.
         \end{solution}
 \end{enumerate}
@@ -311,7 +315,7 @@ $K_{5}$ and $K_{3,3}$ are non-planar
 
 
 \begin{remark}
-The preceding two results are often used as tools for non-planarity, they are weakter then the full theorem 2.
+The preceding two results are often used as tools for non-planarity, they are weakter then the full theorem 4.
 \end{remark}
 
 
@@ -401,7 +405,7 @@ Two graphs $G$ and $H$ are said to be homeomorphism if they are both subdivision
 
 
 
-\begin{theorem}
+\begin{theorem}{5}
 A graph is planar if and only if it contains no subgraph homeomorphic to $K_{5}$ or $K_{3,3}$.
 \end{theorem}
 
@@ -422,7 +426,7 @@ Let $G$ and $H$ be graphs. $G$ is said to be \underline{contractible to $H$} if 
 \end{definition}
 
 
-\begin{theorem}
+\begin{theorem}{6}
 A graph $G$ is planar if and only if it contains no subgraph which is contractible to $K_{5}$ or $K_{3,3}$.
 \end{theorem}
 
@@ -471,7 +475,7 @@ A non-planar graph $G$ is said to be \underline{toroidal} if it can be drawn on 
 \textbf{Question:} Is there analogous of Euler's Formula for the toros?
 
 
-\begin{theorem}
+\begin{theorem}{7}
   Let $G$ be a simple connected torodial graph of order $n$, size $m$ and $f$ faces, Then
   \[n - m + f = 0\]
 
@@ -487,7 +491,7 @@ A graph $G$ is said to have genus $g$ if $G$ can be drawn on a surface of genus 
 
 
 
-\begin{theorem}
+\begin{theorem}{8}
   Let $G$ be a connected graph of genus $g$, order $n$, size $m$, and face $f$. Then
   \[n - m + f = 2-2g\]
   Furthermore, if $G$ is simple of finite girth then
@@ -518,7 +522,7 @@ A graph $G$ is said to have genus $g$ if $G$ can be drawn on a surface of genus 
 \end{example}
 
 
-\begin{theorem}
+\begin{theorem}{9}
 The genus of the graph $G$ is $\le cr(G)$
 \end{theorem}
 
@@ -572,11 +576,11 @@ icosahedron             & dodecahedron                    &
 \end{lemma}
 
 
-\begin{theorem}
+\begin{theorem}{10}
 Let $G$ be a connected planar graph. Then $G^{**}$ is isomorphic to $G$.
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}{11}
 Let $G$ be a connected planar graph and $G^{*}$ a geometric dual of $G$, A subset of $E(G)$ forms a cycle of $G$ if and only if the corresponding subset of $E(G^{*})$ is a cutset of $G^{*}$.
 \end{theorem}
 
@@ -593,12 +597,12 @@ If $e$ is an edge of $G$ then there is a unique edge $e^{*}$ of $G^{*}$ which cr
 Let $G$ be a connected planar graph. A set of edges of $G$ forms a cutset if and only if the corresponding edges of $G^{*}$ forms a cycle.
 \end{corollary}
 
-\begin{theorem}
-Let $G$ be a connected planr graph $G$ is bipartite if and only if $G^{*}$ is eulerian.
+\begin{theorem}{12}
+Let $G$ be a connected planar graph $G$ is bipartite if and only if $G^{*}$ is eulerian.
 \end{theorem}
 
 
-\begin{theorem}
+\begin{theorem}{13}
 Let $G$ be a connected planar graph. If $G$ is 3-edge connected then $G^{*}$ is simple (of order $\ge 3$)
 \end{theorem}
 
@@ -614,13 +618,13 @@ Let $G$ be a connected planar graph. If $G$ is 3-edge connected then $G^{*}$ is 
 \end{example}
 
 
-\begin{theorem}
+\begin{theorem}{14}
   If $G^{*}$ is an abstract dual of $G$ then $G$ is an abstract dual of $G^{*}$.
 
   Abstract duals provide another characterization of planar graphs.
 \end{theorem}
 
-\begin{theorem}
+\begin{theorem}{15}
 A graph $G$ is planar if and only if $G$ has an abstract dual.
 \end{theorem}
 
