@@ -41,12 +41,10 @@
 
 \begin{example}
 
-
-	\begin{enumerate}
-		\textbf{Example Graph here}
-	\end{enumerate}
-
 	Any drawing of $K_{5}$ or $K_{3,3}$ have (at lease) 2 edges which cross (Proof to come)
+	\begin{center}
+		\includegraphics[width=15cm,height=7cm]{example1}
+	\end{center}
 \end{example}
 
 
@@ -81,12 +79,11 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 \end{definition}
 
 \begin{example}\label{a-thm}
-
+	Faces
 
 	\begin{center}
 		\includegraphics[width=12cm, height=7cm]{example2}
 	\end{center}
-
 
 \end{example}
 
@@ -102,13 +99,13 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 
 \end{definition}
 
+
 \begin{usecounterof}{example}{a-thm} (Cont.)
 	\begin{enumerate}
 		\item $\deg F_{1} = \deg F_{2} = 5$
 		\item $\deg F_{2} = 2$ the closed walk is $x\to y \to x$
 		\item $\deg F_{1} = \deg F_{2} = 3$\\
 		      $\deg F_{3} = 6$
-
 	\end{enumerate}
 
 
@@ -129,14 +126,18 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 \begin{pro}
 	$\rightarrow$ Let $C$ be a cycle of $G$. Let $x$ and $y$ be in the interior and exterior of $C$, respectively, then any curve in $\mathbb{R}^{2}$ connecting $x$ and $y$ must cross $C$, have cross $G$
 
+	\begin{center}
+		\includegraphics[width=7cm,height=4cm]{circle_proof}
+	\end{center}
 
-	\includegraphics[width=7cm,height=4cm]{circle_proof}
 	Choosing $x, y$ not lying on $G$ $x$ and $y$ belong to different faces of $G$.
 
 	$\leftarrow$ The absence of a cycle, $G$ is a forest. On induction on the number of components of $G$ shows $G$ has only one (unbounded) face.
 
+	\begin{center}
+		\includegraphics[width=7cm,height=4cm]{circle_proof2}
+	\end{center}
 
-	\includegraphics[width=7cm,height=4cm]{circle_proof2}
 \end{pro}
 
 
@@ -154,12 +155,17 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 	\begin{enumerate}
 		\item Let $H_{1}$ and $H_{2}$ be the components of $G\textbackslash e$. The edge $e$ lies in face $F_{1}$ of $H_{1}$, as well as a face $F_{2}$ of $H_{2}$.
 		      The intersetion $F_{1}\cap F_{2}$ contains a unique face $F_{o}$ of $G$. $e$ lies on the boundary of $F_{o}$ and is the unique face of $G$.
+		      \begin{center}
+			      \includegraphics[width=7cm, height=4cm]{proof2}
+		      \end{center}
 
-		      \includegraphics[width=7cm, height=4cm]{proof2}
 		\item Let $C$ be a cycle containing $e$. The edge $e$ lies on the boundary of one face lying in the interior of $C$ and one face lying in the exterior of $C$.
 		      Thus, $e$ lies on the boundary of at least $2$ faces of $G$.
 
-		      \includegraphics[width=7cm, height=5cm]{proof2.1}
+		      \begin{center}
+			      \includegraphics[width=7cm, height=5cm]{proof2.1}
+		      \end{center}
+
 
 		      The fact faces are disjoint can be used to show that $e$ lies on the boundary of at most $1$ face lying in the interor of $C$, and one face lying in the exterior of $C$. THen $e$ lies in the boundary of at most 2 faces.
 
@@ -200,8 +206,10 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 	\[n-m +(f+1) = 2\]
 
 	Since $f+1\ge 2$, $G$ contains a cycle $C$ (\textbf{Lemma 2}). Fix an edge $e$ lying on $C$. Assume $e$ is not a bridge of $G$. \textbf{Lemma 2} ensures that $e$ lies on the boundary of 2 distince faces of $G$, say $F_{l}$ and $F_{l+1}$.
+	\begin{center}
+		\includegraphics[scale=0.5]{eulerproof}
+	\end{center}
 
-	\includegraphics[scale=0.5]{eulerproof}
 
 	Construst the subgraph $H=G\textbackslash e$. We note $H$ is a connected plane graph of order $n$ and size $m-1$.
 	Furthermore, the number of faces of $H$ is $f$. denoted each of the faces $F_{1}, f_{2},\dots F_{l-1}$ of $G$ occur on faces of $H$. Assume $e$ does not appear in the boundary of any of these faces.
@@ -230,9 +238,10 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 \end{definition}
 
 \begin{example}
-
-	\includegraphics[scale=0.5]{example}
-
+	Girth
+	\begin{center}
+		\includegraphics[scale=0.5]{example}
+	\end{center}
 \end{example}
 
 
@@ -245,7 +254,7 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 	Let $G$ be a connected simple planar graph. If $G$ has order $n$ and size $m$ then
 
 	\begin{align} m \le \begin{cases} n-1                          & \text{if } gr(G) = \infty             \\
-			\frac{gr(G)}{gr(G) - 2}(n-2) & \text{ if  } gr(G) \text{ is finite }\end{cases}
+              \frac{gr(G)}{gr(G) - 2}(n-2) & \text{ if  } gr(G) \text{ is finite }\end{cases}
 	\end{align}
 \end{theorem}
 
@@ -363,8 +372,10 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 		\includegraphics[scale=0.5]{example6}
 	\end{center}
 	\textbf{c.)} Each cycle graph $C_{n}$ is a subdivision of $C_{1}. C_{n}$ can be obtained from $C_{1}$ by the addition of $n-1$ new vertices on the single edge of $C_{1}$
+	\begin{center}
+		\includegraphics[scale=0.5]{c1graph}
+	\end{center}
 
-	\includegraphics[scale=0.5]{c1graph}
 \end{example}
 
 
@@ -412,8 +423,10 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 
 \begin{example}
 	The graph
+	\begin{center}
+		\includegraphics[scale=0.2]{petersan}
+	\end{center}
 
-	\includegraphics[scale=0.2]{petersan}
 
 
 	an alternate characterization of non-planar graphs can be obtained using the notion of contradictions.
@@ -434,8 +447,10 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 \begin{example}
 
 	Peterson graph is contractible to $K_{5}$.
+	\begin{center}
+		\includegraphics[scale=0.5]{petersansan}
+	\end{center}
 
-	\includegraphics[scale=0.5]{petersansan}
 
 	Thus peterson is non-planar.
 \end{example}
@@ -446,7 +461,6 @@ We have observed that $K_{5}$ and $K_{3,3}$ are non-planar. What happens if we c
 \begin{example}
 	Torous (Donut)
 	\begin{center}
-
 		\includegraphics[scale=0.5]{toros}
 	\end{center}
 \end{example}
@@ -539,11 +553,12 @@ We have observed that $K_{5}$ and $K_{3,3}$ are non-planar. What happens if we c
 \end{definition}
 
 \begin{example}
+
+	Platonic Graphs
 	\begin{center}
 		\includegraphics[scale=0.5]{dualgraph}
 	\end{center}
 
-	Platonic Graphs
 
 	\begin{table}[H]
 		\begin{center}
@@ -614,7 +629,10 @@ We have observed that $K_{5}$ and $K_{3,3}$ are non-planar. What happens if we c
 
 \begin{example}
 	If $G$ is plane then its geometric dual $G^{*}$ is an abstract dual (Theorem 11)
-	\includegraphics[scale=0.5]{dual2}
+	\begin{center}
+		\includegraphics[scale=0.5]{dual2}
+	\end{center}
+
 \end{example}
 
 
