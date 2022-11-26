@@ -15,12 +15,15 @@
   \manualtheoreminner
 }{\endmanualtheoreminner}
 \newtheorem*{corollary}{Corollary}
-\newtheorem*{lemma}{Lemma}
+\newtheorem{customlemma}{Lemma}
+\newenvironment{lemma}[1]{
+  \renewcommand\thecustomlemma{#1}\customlemma
+}{\endcustomlemma}
 \newtheorem{example}{Example}
 \newtheorem{definition}{Definition}
 \newtheorem*{remark}{Remark}
 \newtheorem{solution}{Solution}
-\newenvironment{pro}{\begin{proof}}{\end{proof}}
+
 
 \graphicspath{{./img/}}
 \makeatletter
@@ -41,7 +44,7 @@
 
 \begin{example}
 
-	Any drawing of $K_{5}$ or $K_{3,3}$ have (at lease) 2 edges which cross (Proof to come)
+	Any drawing of $K_{5}$ or $K_{3,3}$ have (at least) 2 edges which cross (Proof to come)
 	\begin{center}
 		\includegraphics[width=15cm,height=7cm]{example1}
 	\end{center}
@@ -49,10 +52,10 @@
 
 
 \begin{definition}
-	A graph $G$ is said to be planer if it can be drawn in $\mathbb{R}^{2}$ so that no two edges cross. Such a drawing is called a plane drawing. The graph associated with a plane drawing is usually refered to as a plane graph.
+	A graph $G$ is said to be planer if it can be drawn in $\mathbb{R}^{2}$ so that no two edges cross. Such a drawing is called a \underline{plane drawing}. The graph associated with a plane drawing is usually refered to as a \underline{plane graph}.
 \end{definition}
 
-\begin{remark}
+\begin{remark}\
 
 	\begin{enumerate}
 		\item Any subgraph of a planer graph is planer.
@@ -103,10 +106,14 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 
 \begin{usecounterof}{example}{a-thm} (Cont.)
 	\begin{enumerate}
-		\item $\deg F_{1} = \deg F_{2} = 5$
-		\item $\deg F_{2} = 2$ the closed walk is $x\to y \to x$
+		\item $\deg F_{1} = \deg F_{2} = 5$ for graph a)
+		\item $\deg F_{2} = 2$ the closed walk is $x\to y \to x$ for graph b)
 		\item $\deg F_{1} = \deg F_{2} = 3$\\
-		      $\deg F_{3} = 6$
+		      $\deg F_{3} = 6$ for the graph below
+
+		      \begin{center}
+			      \includegraphics[width=5cm, height=3cm]{facegraph}
+		      \end{center}
 	\end{enumerate}
 
 
@@ -120,41 +127,41 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 	proof of \textbf{Theorem 1} requires a couple of preliminarily lemmas.
 \end{theorem}
 
-\begin{lemma}
+\begin{lemma}{2}
 	Let $G$ be a plane graph. $G$ contains a cycle if and only if the number of faces of $G \ge 2$.
 \end{lemma}
 
-\begin{pro}
-	$\rightarrow$ Let $C$ be a cycle of $G$. Let $x$ and $y$ be in the interior and exterior of $C$, respectively, then any curve in $\mathbb{R}^{2}$ connecting $x$ and $y$ must cross $C$, have cross $G$
+\begin{proof}
+	$\Rightarrow$ Let $C$ be a cycle of $G$. Let $x$ and $y$ be in the interior and exterior of $C$, respectively, then any curve in $\mathbb{R}^{2}$ connecting $x$ and $y$ must cross $C$, have cross $G$
 
 	\begin{center}
 		\includegraphics[width=7cm,height=4cm]{circle_proof}
 	\end{center}
 
-	Choosing $x, y$ not lying on $G$ $x$ and $y$ belong to different faces of $G$.
+	Choosing $x, y$ not lying on $G$, we deduce $x$ and $y$ belong to different faces of $G$.
 
-	$\leftarrow$ The absence of a cycle, $G$ is a forest. On induction on the number of components of $G$ shows $G$ has only one (unbounded) face.
+	$\Leftarrow$ The absence of a cycle, $G$ is a forest. On induction on the number of components of $G$ shows $G$ has only one (unbounded) face.
 
 	\begin{center}
 		\includegraphics[width=7cm,height=4cm]{circle_proof2}
 	\end{center}
 
-\end{pro}
+\end{proof}
 
 
 
-\begin{lemma}
+\begin{lemma}{3}
 	Let $e$ be an edge of a plane graph $G$.
 	\begin{enumerate}
 		\item If $e$ is a bridge then it lies on boundary of exactly one face.
-		\item if $e$ is not a bridge then it lies on the boundary of exactly two faces of $G$
+		\item If $e$ is not a bridge then it lies on the boundary of exactly two faces of $G$
 	\end{enumerate}
 \end{lemma}
 
 
-\begin{pro}
+\begin{proof}
 	\begin{enumerate}
-		\item Let $H_{1}$ and $H_{2}$ be the components of $G\textbackslash e$. The edge $e$ lies in face $F_{1}$ of $H_{1}$, as well as a face $F_{2}$ of $H_{2}$.
+		\item Let $H_{1}$ and $H_{2}$ be the components of $G\backslash e$. The edge $e$ lies in face $F_{1}$ of $H_{1}$, as well as a face $F_{2}$ of $H_{2}$.
 		      The intersetion $F_{1}\cap F_{2}$ contains a unique face $F_{o}$ of $G$. $e$ lies on the boundary of $F_{o}$ and is the unique face of $G$.
 		      \begin{center}
 			      \includegraphics[width=7cm, height=4cm]{proof2}
@@ -168,11 +175,11 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 		      \end{center}
 
 
-		      The fact faces are disjoint can be used to show that $e$ lies on the boundary of at most $1$ face lying in the interor of $C$, and one face lying in the exterior of $C$. THen $e$ lies in the boundary of at most 2 faces.
+		      The fact the faces are disjoint can be used to show that $e$ lies on the boundary of at most $1$ face lying in the interor of $C$, and one face lying in the exterior of $C$. Then $e$ lies in the boundary of at most 2 faces.
 
 	\end{enumerate}
 
-\end{pro}
+\end{proof}
 
 
 
@@ -184,38 +191,40 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 	\[2m = \Sigma_{\text{faces } F} \deg  F\]
 \end{corollary}
 
-\begin{pro}
+\begin{proof}
 	Each edge $e$ of $G$ contributes 2 to the sum on the right:
 
 	If $e$ is a bridge lying on the face $F_{o}$ then it contributes 2 to $\deg F_{o}$ and 0 to the remaining $\deg F$.
 
 
 	If $e$ is not a bridge then it contributes 1 to the degree of two distinct faces of $G$, and 0 to the remaining.
-\end{pro}
+\end{proof}
 
 
-\begin{pro}
+\begin{proof}
 
 	Proof of Euler's Formula
 
-	We proved by induction on $\#$ of faces of $G$ on the case $f=1$. \textbf{Lemma 2} asserts $G$ is a forest, where $G$ is a tree.
-	Thus, $m=n-1$, and hence $n-m +f = n-(n-1)+1 = 2$
+	We proved by induction on $\#$ of faces of $G$. In the case $f=1$. \textbf{Lemma 2} asserts $G$ is a forest, where $G$ is a tree.
 
-	Assume the result is true $f$ connected plane graph $H$ having $f$ faces, and let $G$ have $f+1$ faces, say $F_{1}, F_{2}, \dots, F_{l}, F_{l+1}$.
+	Thus, $m=n-1$, and hence
+	\[n-m +f = n-(n-1)+1 = 2\]
+
+	Assume the result is true for connected plane graph $H$ having $f$ faces, and let $G$ have $f+1$ faces, say $F_{1}, F_{2}, \dots, F_{l}, F_{l+1}$.
 	If $n = \vert G\vert, m = e(G)$ then we are required to show
 
 	\[n-m +(f+1) = 2\]
 
-	Since $f+1\ge 2$, $G$ contains a cycle $C$ (\textbf{Lemma 2}). Fix an edge $e$ lying on $C$. Assume $e$ is not a bridge of $G$. \textbf{Lemma 2} ensures that $e$ lies on the boundary of 2 distince faces of $G$, say $F_{l}$ and $F_{l+1}$.
+	Since $f+1\ge 2$, $G$ contains a cycle $C$ (\textbf{Lemma 2}). Fix an edge $e$ lying on $C$. Since $e$ is not a bridge of $G$. \textbf{Lemma 2} ensures that $e$ lies on the boundary of 2 distince faces of $G$, say $F_{l}$ and $F_{l+1}$.
 	\begin{center}
 		\includegraphics[scale=0.5]{eulerproof}
 	\end{center}
 
 
-	Construst the subgraph $H=G\textbackslash e$. We note $H$ is a connected plane graph of order $n$ and size $m-1$.
-	Furthermore, the number of faces of $H$ is $f$. denoted each of the faces $F_{1}, f_{2},\dots F_{l-1}$ of $G$ occur on faces of $H$. Assume $e$ does not appear in the boundary of any of these faces.
+	Construst the subgraph $H=G\backslash e$. We note $H$ is a connected plane graph of order $n$ and size $m-1$.
+	Furthermore, the number of faces of $H$ is $f$, denoted each of the faces $F_{1}, f_{2},\dots F_{l-1}$ of $G$ occur on faces of $H$. Since $e$ does not appear in the boundary of any of these faces.
 
-	Teh remaining faces of $H$ is obtained by joining $F_{l}$ and $F_{l+1}$ along the edge $e$.
+	The remaining faces of $H$ is obtained by joining $F_{l}$ and $F_{l+1}$ along the edge $e$.
 
 	\[\hat{F_{l}} = F_{l} \cup F_{l+1} \cup e\]
 
@@ -224,7 +233,7 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 	\[ 2 = n- (m-1) + f = n - m + (f+1)\]
 	as required
 
-\end{pro}
+\end{proof}
 
 
 \begin{corollary}
@@ -260,21 +269,23 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 \end{theorem}
 
 
-\begin{pro}
-	If $gr(G) = \infty$ then $G$ is a tree, hence $m = n-1$ if $gr(G)$ is finite then $G$ has $\ge 2$ faces. In this case, the boundary of each face of $G$ contains a cycle, hence
+\begin{proof}
+	If $gr(G) = \infty$ then $G$ is a tree, hence $m = n-1$. If $gr(G)$ is finite then $G$ has $\ge 2$ faces. In this case, the boundary of each face of $G$ contains a cycle, hence
 	\[\deg (F) \ge gr(G)\]
 
-	If each face $F$ of $G$. therfore, if $f = \#$ of faces of $G$ then the handshaking lemma of planer graphs
+	for each face $F$ of $G$. Therfore, if $f = \#$ of faces of $G$ then the handshaking lemma of planer graphs yields
 
 	\[ 2m = \Sigma_{\text{faces} F} \deg F \ge \Sigma gr(G) = gr(G) f\]
 
 	From Euler's formula, $f = 2+m-n$, substitues $f_{i}$ in the preceding yields
 
 	\[2m \ge gr(G) (2+m-n)\]
-\end{pro}
+
+	Solving for $m$ yields the requied identity
+\end{proof}
 
 
-\begin{example}
+\begin{example}\
 
 	\begin{enumerate}
 
@@ -290,7 +301,7 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 			      This contradicts that $gr(G) \ge 3$ No such $G$ exists.
 		      \end{solution}
 
-		\item Let $G$ be a planar graph of size  and girth 5. What can one  say about $n = \vert G\vert$
+		\item Let $G$ be a planar graph of size 14 and girth 5. What can one  say about $n = \vert G\vert$
 
 		      \begin{solution}
 			      From \textbf{Theorem 2}
@@ -301,12 +312,23 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 \end{example}
 
 
+\textbf{Theorem 4} are a number of interesting corollories
+
 \begin{corollary}
 	$K_{5}$ and $K_{3,3}$ are non-planar
 \end{corollary}
 
 
-\textbf{Proof here}
+\begin{proof}
+
+	$K_{5}$ has order 5, size 10 and girth 3. Since
+	\[\frac{3}{3-2}(5-2) = 9 \le 10\]
+	Theorem 3 asserts $K_{5}$ is non-planar.
+
+	$K_{3,3}$ has nodes 6, size 9 and girth 4.
+	\[\frac{4}{4-2}(6-2) = 8 \le 9\]
+	Theorem 3 asserts that $K_{3,3}$ is non-planar.
+\end{proof}
 
 
 \textbf{Exercise Show that Peterson is non-planar}
@@ -321,7 +343,21 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 
 \end{corollary}
 
-\textbf{proof here}
+\begin{proof}
+
+	if $G$ is a tree then $e(G) = n-1\le 3n-6\le 2n-4$
+
+
+	Suppose $G$ has finite girth $gr(G)\ge 3$. Observe the function $f(x) = \frac{x}{x-2}$ is decreasing on $[3,\infty] (f'(x) = \frac{-2}{(x-2)^{2}})$
+	which proves 1.)
+
+	For 2.) note the hypothesis implies $gr(G) \ge 4$ when
+	\[e(G) \le \frac{gr(G)}{gr(G)-2} (n-2) \le \frac{4}{4-2} = 2n-4\]
+
+	\[\frac{gr(G)}{gr(G)-2}\le \frac{3}{3-2} = 3\]
+	Thus, from Theorem 3,
+	\[e(G) \le \frac{gr(G)}{gr(G) - 2} (n-2) \le 3(n-2) = 3n-6\]
+\end{proof}
 
 
 \begin{remark}
@@ -330,10 +366,20 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 
 
 \begin{corollary}
-	Every simple planar graph $G$ contains a vertex of degree at most $5 (\delta(G) \le 5)$
+	Every simple planar graph $G$ contains a vertex of degree at most 5 (i.e $\delta(G) \le 5)$
 \end{corollary}
 
-\textbf{proof here}
+\begin{proof}
+	WLOG $G$ can eb assumed to be connected and has at least 7 vertices. If each vertex has degree $\ge 2$, the handshaking lemma would imply
+	\[2m = \Sigma \deg v \ge 6n, m = e(G), n = \vert G\vert\]
+
+	hence $m\ge 3n$
+
+	On the other hand, $G$ is planar, so the preceding corollary yields $m\le 3n-6$. Corollay with the above inequality, we get
+	\[3n \le m \le 3n-6\]
+
+
+\end{proof}
 
 
 
@@ -353,7 +399,7 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 \end{example}
 
 \begin{remark}
-	Euler's formula can be extended to disconnected plane graphs using induction on the $\#$ of components. If $G$ is aplnar graph of order $n$ size $m$ with $f$ faces and $k$ components then
+	Euler's formula can be extended to disconnected plane graphs using induction on the $\#$ of components. If $G$ is a planar graph of order $n$ size $m$ with $f$ faces and $k$ components then
 	\[n- m + f = k +1\]
 
 	There are also analogue for Theorem 3 and its corollories.
@@ -377,10 +423,12 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 		\includegraphics[scale=0.5]{c1graph}
 	\end{center}
 
+	requires the addition of an extra edge to the latter
+
 \end{example}
 
 
-\begin{remark}
+\begin{remark}\
 	\begin{enumerate}
 		\item The process of subdivion only introduces new vertices of degree 2
 		\item Note that if $H$ is a subdivion of $G$ then $H$ has the same shape as $G$.
@@ -391,7 +439,7 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 	Two graphs $G$ and $H$ are said to be homeomorphism if they are both subdivision of a common graph.
 \end{definition}
 
-\begin{example}
+\begin{example}\
 	\begin{enumerate}
 		\item If $n,m \ge 1$ then $C_{n}$ is homeomorphism to $C_{m}$ as both are subdivion of $C_{1}$.
 		\item If $n,m\ge 2$ then $P_{n}$ and $P_{m}$ are homoeomorphism as both are subdivion of $P_{2}$
@@ -399,7 +447,7 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 \end{example}
 
 
-\begin{remark}
+\begin{remark}\
 
 	\begin{enumerate}
 		\item $G$ and $H$ are homeomorphic if the latter can be obtained from the former by a finite sequence of following 2 operations:
@@ -417,7 +465,7 @@ We observe that $S$ is the disjoint union of finitely many subsets $F_{1}, F_{2}
 
 
 
-\begin{theorem}{5}
+\begin{theorem}{5} (Kuratowski, 1930)\
 	A graph is planar if and only if it contains no subgraph homeomorphic to $K_{5}$ or $K_{3,3}$.
 \end{theorem}
 
@@ -476,11 +524,11 @@ We have observed that $K_{5}$ and $K_{3,3}$ are non-planar. What happens if we c
 	\begin{enumerate}
 		\item $K_{5}$ is torodial
 
+		\item $K_{3,3}$ is torodial
 		      \begin{center}
 			      \includegraphics[scale=0.5]{torodial}
 		      \end{center}
 
-		\item $K_{3,3}$ is torodial
 
 	\end{enumerate}
 
@@ -497,6 +545,19 @@ We have observed that $K_{5}$ and $K_{3,3}$ are non-planar. What happens if we c
 	Furthermore,
 	\[m \le \frac{gr(G)}{gr(G) - 2} n\]
 \end{theorem}
+
+The proof of Theorem 7 is esentially the same as that of Theorem 1 (and to corollary Theorem 2).
+Furthermore, it is also analogus of Kuratowski - there are a finite $\#$ of graphs where subdivision cannot appear in torodial graphs.
+
+More genrally, one can conceive a donut with $g$ holes.
+Thus it is the `same' thing as a sphere with $g$ handles.
+
+\begin{center}
+	\includegraphics[width=12cm, height=7cm]{genusexample}
+\end{center}
+
+
+The number of holes (or handles) is called the genus of the surface.
 
 
 
@@ -528,18 +589,47 @@ We have observed that $K_{5}$ and $K_{3,3}$ are non-planar. What happens if we c
 	$\lceil x \rceil =$ least integer greater than or equal to $x$
 \end{corollary}
 
-\begin{remark}
-	Let $G$ be a graph. The \underline{crossing number} $cr(G)$ is the minimum \# of crossing that can occur when $G$ is drawn in the plane.
-\end{remark}
 
-\begin{example}
-	\textbf{graph here}
+\begin{proof}
+	Solving the inequality $m\le 3(n + 2g -2)$ for $g$ yields
+	\[\frac{m-3n}{6} + 1 \le g\]
+	The result follows by nothing $g$ is an integer
+
+\end{proof}
+
+\begin{definition}
+	Let $G$ be a graph. The \underline{crossing number} $cr(G)$ is the minimum \# of crossing that can occur when $G$ is drawn in the plane.
+\end{definition}
+
+\begin{example}\
+
+	\begin{center}
+		\includegraphics[width=15cm, height=7cm]{crossinga}
+	\end{center}
+
+	\begin{center}
+		\includegraphics[width=14cm, height=7cm]{crossingb}
+	\end{center}
+
 \end{example}
 
 
 \begin{theorem}{9}
 	The genus of the graph $G$ is $\le cr(G)$
 \end{theorem}
+
+
+\begin{proof}
+	Drawing the graph on the sphere. Suppose we have a crossing
+
+	\begin{center}
+		\includegraphics[width=15cm, height=7cm]{crossingproof}
+	\end{center}
+
+	Distribution of a handle allows a bridge with one edge can go under and the second edge go over,
+	Then removing the crossing. Then the addition of $cr(G)$ handles resusts in a surface of genus $g$ on which $G$ can be drawn with no edge crossing.
+
+\end{proof}
 
 
 \textbf{Dual Graphs}
@@ -578,7 +668,7 @@ We have observed that $K_{5}$ and $K_{3,3}$ are non-planar. What happens if we c
 
 
 
-\begin{remark}
+\begin{remark}\
 	\begin{enumerate}
 		\item The contrustion of $G^{*}$ depends on the plane drawing of $G$. For example, the grphs $G$ in example 13 (i) and (ii) are isomorphic, bnut their geometric duals are not.  One has vertex of degree 5 but the other has no such vertex.
 		\item $G^{*}$ is planar and connected.
@@ -586,15 +676,44 @@ We have observed that $K_{5}$ and $K_{3,3}$ are non-planar. What happens if we c
 \end{remark}
 
 
-\begin{lemma}
+\begin{lemma}{9}
 	Let $G$ be a connected planar graph of order $n$, size $m$, and face $f$. If $G^{*}$ is a geometric dual then the nodes $n^{*}$ size $m^{*}$ and number of faces $f^{*}$ satisfies
 	\[n^{*} = f, m^{*} = m, f^{*} =f\]
 \end{lemma}
+
+\begin{proof}
+	By construction, $n^{*} = f$ and $m^{*} = m$. Since both $G$ and $G^{*}$ are connected plane graphs
+	\[n-m+f = 2= n^{*}-m^{*}+f^{*}\]
+	we get $f^{*} = n$
+\end{proof}
 
 
 \begin{theorem}{10}
 	Let $G$ be a connected planar graph. Then $G^{**}$ is isomorphic to $G$.
 \end{theorem}
+
+\begin{proof}
+
+	Observe each face of $G^{*}$ contains at least one vertex of $G$. The fact $n=f^{*}$ ensure that there is exactly one in each face.
+	Thus, one use $V(G)$ as the vertex set of $G^{**}$.
+	Doing so, $E(G)$ can be used as the edge set of $G^{**}$, where $G^{**} =G$ as required.
+
+	The following table shows some of the relations between a plane graph $G$ and its dual.
+
+	\begin{table}
+		\centering
+		\begin{tabular}{ll}
+			$G$                      & $G^{*}$               \\
+			vertices                 & faces                 \\
+			edges                    & edge                  \\
+			vertex degree            & face degree           \\
+			handshaking for vertices & handshaking for faces \\
+			bridges                  & loops                 \\
+			deletion of edge         & contraction of edge
+		\end{tabular}
+	\end{table}
+	The last is a special case of a more general result.
+\end{proof}
 
 \begin{theorem}{11}
 	Let $G$ be a connected planar graph and $G^{*}$ a geometric dual of $G$, A subset of $E(G)$ forms a cycle of $G$ if and only if the corresponding subset of $E(G^{*})$ is a cutset of $G^{*}$.
@@ -605,18 +724,54 @@ We have observed that $K_{5}$ and $K_{3,3}$ are non-planar. What happens if we c
 \end{remark}
 
 
-% TODO
+\begin{proof} (Sketch)
+	$\Rightarrow$ Each cycle $C$ of $G$ partitions $V(G^{*})$:
 
+	$V(G^{*}) = S_{1}\cup S_{2}$ where $S_{1}$ (or $S_{2}$) is the set of vertices lying inside (respectively outside) C.
+
+	\begin{center}
+		\includegraphics[width=7cm, height=5cm]{dualproof1}
+	\end{center}
+
+	Both $S_{1}$ and $S_{2}$ are non-empty, since $G$ has faces lying in the interior and exterior of $C$,
+	Furthermore, any two vertices of $S_{1}$ (or $S_{2}$) is a connected by a path in $G^{*}$ lying inside (resp outside) of $C$. On the other hand, any path connected a vertec of $S_{1}$ with a verted of $S_{2}$ must cross $C$.
+	Hence, certain edge of $G^{*}$ corresponding to one of $C$. Thus the set $C^{*}$ of edges $G^*$ corresponding to ones of $C$ for a disconnecting set, the fact that end edges of $C^{*}$ join one vertex of $S_{1}$ to one of $S_{2}$ ensure $C^{*}$ is a cutset.
+
+	$\Leftarrow$ Suppost $X^{*}$ is a cutset of $G^{*}$, say
+	\[G^{*}\setminus X^{*} = G_{1}^{*} \cup G_{2}^{*}\]
+	WLOG, assume $G_{2}^{*}$ contains the unbounded vertex of $G^{*}$. If $F$ denotes the  of the faces
+	of $G$ correspong to the vertex of $G^{*}$ then $F$ is bounded,
+	As  the boundary of $F$ must contain a cycle $C$. If $X$ denotes the edges of $G$ corresponding to $X^{*}$, we see $C\subseteq X$. If the  was proper, $C^{*}$ would be a proper subset of $X^{*}$ which disconnects, contradicting the fact $X^{*}$ is a cutset, Thus $X=C$, a cycle.
+
+\end{proof}
 
 
 \begin{corollary}
 	Let $G$ be a connected planar graph. A set of edges of $G$ forms a cutset if and only if the corresponding edges of $G^{*}$ forms a cycle.
 \end{corollary}
 
+\begin{proof}
+	By duality, applying the preceding Theorem to the case $G^{*}$, we get that $G^{**}=G$ since $G$ is connected
+\end{proof}
+
 \begin{theorem}{12}
 	Let $G$ be a connected planar graph $G$ is bipartite if and only if $G^{*}$ is eulerian.
 \end{theorem}
 
+
+\begin{proof}
+
+	\begin{align}
+		G \text{ bipartite } \Leftrightarrow
+		\begin{cases}
+			\text{ all cycles of } G \text{ have even length }                             \\
+			\text{ all cutsets of } G^{*} \text{ have even size (corollary to therorem 6)} \\
+			G^{*} \text{ is a disjoint union of cycles}                                    \\
+			G^{*} \text{ is eulerian}
+		\end{cases}
+	\end{align}
+
+\end{proof}
 
 \begin{theorem}{13}
 	Let $G$ be a connected planar graph. If $G$ is 3-edge connected then $G^{*}$ is simple (of order $\ge 3$)
@@ -647,5 +802,38 @@ We have observed that $K_{5}$ and $K_{3,3}$ are non-planar. What happens if we c
 	A graph $G$ is planar if and only if $G$ has an abstract dual.
 \end{theorem}
 
+
+\begin{proof}
+
+	Suppose $G$ has a abstract dual $G^{*}$. If $e\in E(G)$ has correspoing edge $e^{*}$ then $G^{*}\setminus e^{*}$ is an abstract dual of $G\setminus e$.
+	It follows that every subgraph of $G$ has an abstract dual.
+
+	If $G^{'}$ is obtain from $G$ by adding (resp deleting) a vertex of degree 2 along on existing edge then the graph $(G^{'})^{*}$ obtained from $G^{*}$ by the addition (resp deleting) of a multiple edge is an abstract dual of $G^{'}$
+	\begin{center}
+		\includegraphics[width=9cm, height=5cm]{lastproof}
+	\end{center}
+
+	As a result, if $G$ admits an abstract dual and $G^{'}$ is homoeomorphic to $G$ then $G^{'}$ admits an abstract dual.
+
+	We next observe that neither $K_{5}$ or $K_{3,3}$ admit abstract duals. One has $\lambda(K_{3,3}) = 3$ and $gr(K_{3,3}) = 4$. So if $K_{3,3}^{*}$ existed then $gr(K_{3,3}) = 3$ and $\lambda(K_{3,3}^{*}) = 4$,
+	The former ocndition ensure $K_{3,3}^{*}$ is simple, which the latter condition ensure $\delta(K_{3,3}^{*}\ge 4)$.
+	Thus, $\vert K_{3,3}^{*} \vert \ge 5$ and so
+	\[e(K_{3,3}^{*}) = \frac{1}{2} \Sigma \deg v \ge \frac{1}{2}(5\times 4) = 10\]
+
+	\[\leftrightarrow e(K_{3,3}^{*}) = e(K_{3,3}) = 9\]
+
+	\
+
+	For $K_{5}$ one has $\lambda(K_{5}) = 4$ and $gr(K_{5}) = 3$. So if $K_{5}^{*}$ existed then $gr(K_{5}^{*}) = 4$ and $\lambda(K_{5}^{*}=3)$.
+	The former condition ensure that $K_{5}^{*}$ is simple, while the latter ensure that $\delta(K_{5}^{*})\ge 3$.
+	\[e(K_{5}^{*}) = e(K_{5}) = 10\]
+
+	The face $\delta(K_{5}^{*})\ge 3$ follows $\vert K_{5}^{*}\vert \le 6$
+
+
+	Suppose $G$ ensures an abstract dual in light of the preceding discussion, $G$ contains no subgraph homoeomorphic to $K_{5}$ or $K_{3,3}$, so Kuratowski ensure $G$ is planar.
+
+
+\end{proof}
 
 \end{document}
